@@ -1,4 +1,4 @@
-package kg.alatoo.sewing_industry_management.entity;
+package kg.alatoo.sewing_industry_management.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,6 +15,6 @@ public class RawMaterial {
 
     private String name;
     private String color;
-    private int quantity; // (in meters)
+    private double quantity; // (in meters)
     private String description;
 }

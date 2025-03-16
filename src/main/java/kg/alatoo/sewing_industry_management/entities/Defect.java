@@ -1,4 +1,4 @@
-package kg.alatoo.sewing_industry_management.entity;
+package kg.alatoo.sewing_industry_management.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
