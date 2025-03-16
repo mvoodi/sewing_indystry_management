@@ -15,6 +15,7 @@ public class Product {
     private String color;
     private String size;
     private int quantity;
+    private String status;
     @ManyToOne
     @JoinColumn(name = "raw_material_id")
     private RawMaterial rawMaterial; //Connection with raw material

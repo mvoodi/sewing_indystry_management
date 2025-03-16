@@ -1,10 +1,12 @@
 package kg.alatoo.sewing_industry_management.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Set;
 
 @Entity
+@Data
 @Table(name = "app_user")
 public class User {
     @Id

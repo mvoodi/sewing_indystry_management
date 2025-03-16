@@ -5,7 +5,6 @@ import kg.alatoo.sewing_industry_management.entities.RawMaterial;
 import kg.alatoo.sewing_industry_management.mappers.RawMaterialMapper;
 import kg.alatoo.sewing_industry_management.repositories.RawMaterialRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
