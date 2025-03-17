@@ -6,7 +6,7 @@ import kg.alatoo.sewing_industry_management.entities.Defect;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface DefectMapper {
     DefectMapper INSTANCE = Mappers.getMapper(DefectMapper.class);
 

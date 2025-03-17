@@ -22,7 +22,7 @@ public class DefectController {
 
     @GetMapping("/{id}")
     public ResponseEntity<DefectDTO> getDefectById(@PathVariable Long id){
-        DefectDTO defectDTO = defectService.getById(id);
+        DefectDTO defectDTO = defectService.getDefectById(id);
         return ResponseEntity.ok(defectDTO);
 
     }
