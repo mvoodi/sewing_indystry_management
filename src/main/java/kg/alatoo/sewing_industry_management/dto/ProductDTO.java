@@ -12,5 +12,17 @@ public class ProductDTO {
     private int quantity;
     private String status;
 
+    public ProductDTO(){
 
+    }
+
+    public ProductDTO(Long id, String name, String style, String color, String size, int quantity, String status) {
+        this.id = id;
+        this.name = name;
+        this.style = style;
+        this.color = color;
+        this.size = size;
+        this.quantity = quantity;
+        this.status = status;
+    }
 }

@@ -1,6 +1,7 @@
 package kg.alatoo.sewing_industry_management.controllers;
 
 import kg.alatoo.sewing_industry_management.dto.RawMaterialDTO;
+import kg.alatoo.sewing_industry_management.dto.UserDTO;
 import kg.alatoo.sewing_industry_management.entities.RawMaterial;
 import kg.alatoo.sewing_industry_management.services.RawMaterialService;
 import lombok.AllArgsConstructor;
@@ -8,12 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/raw-materials")
 public class RawMaterialController {
 
     private final RawMaterialService rawMaterialService;
+    @GetMapping
+    public List<RawMaterialDTO> getAllRawMaterials() {
+        return rawMaterialService.getAllRawMaterials();
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<RawMaterialDTO> getRawMaterialById(@PathVariable Long id){
