@@ -2,6 +2,8 @@ package kg.alatoo.sewing_industry_management.services.impl;
 
 import kg.alatoo.sewing_industry_management.dto.RawMaterialDTO;
 import kg.alatoo.sewing_industry_management.entities.RawMaterial;
+import kg.alatoo.sewing_industry_management.exception.RawMaterialNotFoundException;
+import kg.alatoo.sewing_industry_management.exception.UserNotFoundException;
 import kg.alatoo.sewing_industry_management.mappers.RawMaterialMapper;
 import kg.alatoo.sewing_industry_management.repositories.RawMaterialRepository;
 import kg.alatoo.sewing_industry_management.services.RawMaterialService;
@@ -29,7 +31,7 @@ public class RawMaterialServiceImpl implements RawMaterialService {
     @Override
     public RawMaterialDTO getRawMaterialById(Long id) {
         RawMaterial rawMaterial = rawMaterialRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("RawMaterial not found"));
+                .orElseThrow(() -> new RawMaterialNotFoundException("Raw material with ID " + id + " not found"));
         return rawMaterialMapper.toDto(rawMaterial);
     }
 
@@ -43,7 +45,7 @@ public class RawMaterialServiceImpl implements RawMaterialService {
     @Override
     public RawMaterialDTO updateRawMaterial(Long id, RawMaterialDTO rawMaterialDTO) {
         RawMaterial existingRawMaterial = rawMaterialRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("RawMaterial not found"));
+                .orElseThrow(() -> new RawMaterialNotFoundException("Raw material with ID " + id + " not found"));
 
         existingRawMaterial.setName(rawMaterialDTO.getName());
         existingRawMaterial.setColor(rawMaterialDTO.getColor());
@@ -56,7 +58,11 @@ public class RawMaterialServiceImpl implements RawMaterialService {
 
     @Override
     public void deleteRawMaterial(Long id) {
+        if (!rawMaterialRepository.existsById(id)) {
+            throw new RawMaterialNotFoundException("User with ID " + id + " not found");
+        }
         rawMaterialRepository.deleteById(id);
+
     }
 }
 

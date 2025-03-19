@@ -2,6 +2,7 @@ package kg.alatoo.sewing_industry_management.services.impl;
 
 import kg.alatoo.sewing_industry_management.dto.UserDTO;
 import kg.alatoo.sewing_industry_management.entities.User;
+import kg.alatoo.sewing_industry_management.exception.UserNotFoundException;
 import kg.alatoo.sewing_industry_management.mappers.UserMapper;
 import kg.alatoo.sewing_industry_management.repositories.UserRepository;
 import kg.alatoo.sewing_industry_management.services.UserService;
@@ -28,7 +29,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO getUserById(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User with ID " + id + " not found"));
         return userMapper.toDto(user);
     }
 
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO updateUser(Long id, UserDTO userDTO) {
         User existingUser = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User with ID " + id + " not found"));
 
         existingUser.setUsername(userDTO.getUsername());
         existingUser.setPassword(userDTO.getPassword());
@@ -54,6 +55,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long id) {
+        if (!userRepository.existsById(id)) {
+            throw new UserNotFoundException("User with ID " + id + " not found");
+        }
         userRepository.deleteById(id);
     }
 }
