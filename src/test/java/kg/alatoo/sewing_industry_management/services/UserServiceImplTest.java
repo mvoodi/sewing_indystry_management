@@ -2,6 +2,7 @@ package kg.alatoo.sewing_industry_management.services;
 
 import kg.alatoo.sewing_industry_management.dto.UserDTO;
 import kg.alatoo.sewing_industry_management.entities.User;
+import kg.alatoo.sewing_industry_management.enums.Role;
 import kg.alatoo.sewing_industry_management.mappers.UserMapper;
 import kg.alatoo.sewing_industry_management.repositories.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,12 +37,12 @@ class UserServiceImplTest {
     void setUp() {
         user = new User();
         user.setId(1L);
-        user.setUsername("testUser");
-        user.setPassword("password");
-        user.setEmail("test@example.com");
-        user.setRole("USER");
+        user.setUsername("Mira");
+        user.setPassword("uulum2010");
+        user.setEmail("mira_official@example.com");
+        user.setRole(Role.MANAGER);
 
-        userDTO = new UserDTO(1L, "testUser", "password", "test@example.com", "USER");
+        userDTO = new UserDTO(1L, "Mira", "uulum2010", "mira_official@example.com", Role.MANAGER);
     }
 
     @Test
@@ -51,7 +52,7 @@ class UserServiceImplTest {
 
         List<UserDTO> users = userService.getAllUsers();
         assertEquals(1, users.size());
-        assertEquals("testUser", users.get(0).getUsername());
+        assertEquals("Mira", users.get(0).getUsername());
     }
 
     @Test
@@ -61,7 +62,7 @@ class UserServiceImplTest {
 
         UserDTO foundUser = userService.getUserById(1L);
         assertNotNull(foundUser);
-        assertEquals("testUser", foundUser.getUsername());
+        assertEquals("Mira", foundUser.getUsername());
     }
 
     @Test
@@ -72,7 +73,7 @@ class UserServiceImplTest {
 
         UserDTO createdUser = userService.createUser(userDTO);
         assertNotNull(createdUser);
-        assertEquals("testUser", createdUser.getUsername());
+        assertEquals("Mira", createdUser.getUsername());
     }
 
     @Test
@@ -83,7 +84,7 @@ class UserServiceImplTest {
 
         UserDTO updatedUser = userService.updateUser(1L, userDTO);
         assertNotNull(updatedUser);
-        assertEquals("testUser", updatedUser.getUsername());
+        assertEquals("Mira", updatedUser.getUsername());
     }
 
     @Test

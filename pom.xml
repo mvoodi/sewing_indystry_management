@@ -11,7 +11,7 @@
     <groupId>kg.alatoo</groupId>
     <artifactId>sewing_fabric</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>food_delivery</name>
+    <name>sewing_fabric</name>
     <description>A Spring Boot-based application designed to streamline food ordering, delivery, and restaurant management processes</description>
     <url/>
     <licenses>

@@ -1,6 +1,7 @@
 package kg.alatoo.sewing_industry_management.entities;
 
 import jakarta.persistence.*;
+import kg.alatoo.sewing_industry_management.enums.Role;
 import lombok.Data;
 
 import java.util.Set;
@@ -16,5 +17,7 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private String role;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

@@ -1,6 +1,7 @@
 package kg.alatoo.sewing_industry_management.repositories;
 
 import kg.alatoo.sewing_industry_management.entities.User;
+import kg.alatoo.sewing_industry_management.enums.Role;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,31 +25,30 @@ class UserRepositoryTest {
     @BeforeEach
     void setUp() {
         user = new User();
-        user.setUsername("testuser");
-        user.setPassword("password");
-        user.setEmail("test@example.com");
-        user.setRole("USER");
-        userRepository.save(user);
+        user.setUsername("Gulya");
+        user.setPassword("admin123");
+        user.setEmail("gulyaK@example.com");
+        user.setRole(Role.SEAMSTRESS);
     }
 
     @Test
     void testFindById() {
         Optional<User> foundUser = userRepository.findById(user.getId());
         assertTrue(foundUser.isPresent());
-        assertEquals("testuser", foundUser.get().getUsername());
+        assertEquals("Gulya", foundUser.get().getUsername());
     }
 
     @Test
     void testSaveUser() {
         User newUser = new User();
-        newUser.setUsername("newuser");
-        newUser.setPassword("newpassword");
-        newUser.setEmail("new@example.com");
-        newUser.setRole("ADMIN");
+        user.setUsername("Tunuk");
+        user.setPassword("Tunuk1999");
+        user.setEmail("Tunukk99@example.com");
+        user.setRole(Role.SEAMSTRESS);
 
         User savedUser = userRepository.save(newUser);
         assertNotNull(savedUser.getId());
-        assertEquals("newuser", savedUser.getUsername());
+        assertEquals("Tunuk", savedUser.getUsername());
     }
 
     @Test
