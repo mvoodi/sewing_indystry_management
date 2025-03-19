@@ -4,6 +4,7 @@ import kg.alatoo.sewing_industry_management.dto.DefectDTO;
 import kg.alatoo.sewing_industry_management.entities.Defect;
 import kg.alatoo.sewing_industry_management.mappers.DefectMapper;
 import kg.alatoo.sewing_industry_management.repositories.DefectRepository;
+import kg.alatoo.sewing_industry_management.services.impl.DefectServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,7 +41,7 @@ class DefectServiceImplTest {
         defect.setDescription("Torn fabric");
         defect.setQuantity(5);
 
-        defectDTO = new DefectDTO(1L, "Torn fabric", 5, 2L);
+        defectDTO = new DefectDTO(1L, "Torn fabric", 5, 1L);
     }
 
     @Test

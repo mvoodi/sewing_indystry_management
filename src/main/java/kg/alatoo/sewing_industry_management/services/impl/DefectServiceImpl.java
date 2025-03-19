@@ -1,9 +1,10 @@
-package kg.alatoo.sewing_industry_management.services;
+package kg.alatoo.sewing_industry_management.services.impl;
 
 import kg.alatoo.sewing_industry_management.dto.DefectDTO;
 import kg.alatoo.sewing_industry_management.entities.Defect;
 import kg.alatoo.sewing_industry_management.mappers.DefectMapper;
 import kg.alatoo.sewing_industry_management.repositories.DefectRepository;
+import kg.alatoo.sewing_industry_management.services.DefectService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

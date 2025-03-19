@@ -5,6 +5,7 @@ import kg.alatoo.sewing_industry_management.entities.User;
 import kg.alatoo.sewing_industry_management.enums.Role;
 import kg.alatoo.sewing_industry_management.mappers.UserMapper;
 import kg.alatoo.sewing_industry_management.repositories.UserRepository;
+import kg.alatoo.sewing_industry_management.services.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,9 +1,10 @@
-package kg.alatoo.sewing_industry_management.services;
+package kg.alatoo.sewing_industry_management.services.impl;
 
 import kg.alatoo.sewing_industry_management.dto.UserDTO;
 import kg.alatoo.sewing_industry_management.entities.User;
 import kg.alatoo.sewing_industry_management.mappers.UserMapper;
 import kg.alatoo.sewing_industry_management.repositories.UserRepository;
+import kg.alatoo.sewing_industry_management.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
