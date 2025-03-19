@@ -2,6 +2,7 @@ package kg.alatoo.sewing_industry_management.services;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
 import kg.alatoo.sewing_industry_management.entities.Product;
+import kg.alatoo.sewing_industry_management.enums.Status;
 import kg.alatoo.sewing_industry_management.mappers.ProductMapper;
 import kg.alatoo.sewing_industry_management.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
@@ -57,4 +58,36 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
+
+    @Override
+    public  void nextStep(Long id){
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        product.setStatus(next(product.getStatus()));
+        productRepository.save(product);
+
+    }
+
+    private Status next(Status status){
+        if (status == Status.INSTOCK){
+            return Status.CUTTING;
+        }
+        else if(status == Status.CUTTING){
+            return Status.SEWING;
+        }
+        else if(status == Status.SEWING){
+            return Status.IRONING;
+        }
+        else if(status == Status.IRONING){
+            return Status.PACKAGING;
+        }
+        else if(status == Status.PACKAGING){
+            return Status.READY;
+        }
+        else{
+            return status;
+        }
+
+    }
+
 }

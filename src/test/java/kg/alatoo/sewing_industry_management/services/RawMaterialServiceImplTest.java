@@ -39,14 +39,14 @@ class RawMaterialServiceImplTest {
         rawMaterial.setName("Cotton");
         rawMaterial.setColor("White");
         rawMaterial.setQuantity(100.5);
-        rawMaterial.setDescription("High-quality cotton fabric");
+        rawMaterial.setStatus("High-quality cotton fabric");
 
         rawMaterialDTO = new RawMaterialDTO();
         rawMaterialDTO.setId(1L);
         rawMaterialDTO.setName("Cotton");
         rawMaterialDTO.setColor("White");
         rawMaterialDTO.setQuantity(100.5);
-        rawMaterialDTO.setDescription("High-quality cotton fabric");
+        rawMaterialDTO.setStatus("High-quality cotton fabric");
     }
 
     @Test

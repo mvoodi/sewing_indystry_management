@@ -1,6 +1,7 @@
 package kg.alatoo.sewing_industry_management.controllers;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
+import kg.alatoo.sewing_industry_management.enums.Status;
 import kg.alatoo.sewing_industry_management.services.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ class ProductControllerTest {
 
     @BeforeEach
     void setUp() {
-        productDTO = new ProductDTO(1L, "T-shirt", "Casual", "Blue", "M", 100, "Available");
+        productDTO = new ProductDTO(1L, "T-shirt", "Casual", "Blue", "M", 100, Status.INSTOCK);
     }
 
     @Test

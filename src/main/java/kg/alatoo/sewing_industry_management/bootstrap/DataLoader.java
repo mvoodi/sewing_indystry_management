@@ -18,13 +18,13 @@ public class DataLoader implements CommandLineRunner {
         material1.setName("Cotton");
         material1.setColor("White");
         material1.setQuantity(100.0);
-        material1.setDescription("High-quality cotton fabric");
+        material1.setStatus("High-quality cotton fabric");
 
         RawMaterial material2 = new RawMaterial();
         material2.setName("Silk");
         material2.setColor("Red");
         material2.setQuantity(50.0);
-        material2.setDescription("Luxurious silk fabric");
+        material2.setStatus("Luxurious silk fabric");
 
         rawMaterialRepository.save(material1);
         rawMaterialRepository.save(material2);

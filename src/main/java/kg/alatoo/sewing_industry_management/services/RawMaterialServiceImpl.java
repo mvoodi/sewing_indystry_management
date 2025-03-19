@@ -47,7 +47,7 @@ public class RawMaterialServiceImpl implements RawMaterialService {
         existingRawMaterial.setName(rawMaterialDTO.getName());
         existingRawMaterial.setColor(rawMaterialDTO.getColor());
         existingRawMaterial.setQuantity(rawMaterialDTO.getQuantity());
-        existingRawMaterial.setDescription(rawMaterialDTO.getDescription());
+        existingRawMaterial.setStatus(rawMaterialDTO.getStatus());
 
         RawMaterial updatedRawMaterial = rawMaterialRepository.save(existingRawMaterial);
         return rawMaterialMapper.toDto(updatedRawMaterial);

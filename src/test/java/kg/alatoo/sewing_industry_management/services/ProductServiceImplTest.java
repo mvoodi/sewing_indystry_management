@@ -2,6 +2,7 @@ package kg.alatoo.sewing_industry_management.services;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
 import kg.alatoo.sewing_industry_management.entities.Product;
+import kg.alatoo.sewing_industry_management.enums.Status;
 import kg.alatoo.sewing_industry_management.mappers.ProductMapper;
 import kg.alatoo.sewing_industry_management.repositories.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,9 +44,9 @@ class ProductServiceImplTest {
         product.setColor("Blue");
         product.setSize("M");
         product.setQuantity(100);
-        product.setStatus("Available");
+        product.setStatus(Status.INSTOCK);
 
-        productDTO = new ProductDTO(1L, "Shirt", "Casual", "Blue", "M", 100, "Available");
+        productDTO = new ProductDTO(1L, "Shirt", "Casual", "Blue", "M", 100, Status.INSTOCK);
     }
 
     @Test

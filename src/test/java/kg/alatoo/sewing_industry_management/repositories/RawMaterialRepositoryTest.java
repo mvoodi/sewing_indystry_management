@@ -27,7 +27,7 @@ class RawMaterialRepositoryTest {
         rawMaterial.setName("Cotton");
         rawMaterial.setColor("White");
         rawMaterial.setQuantity(100);
-        rawMaterial.setDescription("Soft cotton fabric");
+        rawMaterial.setStatus("Soft cotton fabric");
         rawMaterial = rawMaterialRepository.save(rawMaterial);
     }
 

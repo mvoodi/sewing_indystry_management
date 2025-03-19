@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>kg.alatoo</groupId>
-    <artifactId>food_delivery</artifactId>
+    <artifactId>sewing_fabric</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>food_delivery</name>
     <description>A Spring Boot-based application designed to streamline food ordering, delivery, and restaurant management processes</description>
