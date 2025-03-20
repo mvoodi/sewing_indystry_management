@@ -11,6 +11,8 @@ class ProductMapperTest {
 
     @Test
     void testToDto() {
+        RawMaterial rawMaterial = new RawMaterial();
+
         Product product = new Product();
         product.setId(1L);
         product.setName("T-Shirt");
@@ -19,15 +21,19 @@ class ProductMapperTest {
         product.setSize("M");
         product.setQuantity(50);
         product.setStatus(Status.INSTOCK);
+        product.setRawMaterial(rawMaterial);
+
 
         ProductDTO dto = mapper.toDto(product);
         assertNotNull(dto);
         assertEquals(product.getId(), dto.getId());
+        assertEquals(product.getRawMaterial().getId(), dto.getRawMaterialId());
+
     }
 
     @Test
     void testToEntity() {
-        ProductDTO dto = new ProductDTO(1L, "T-Shirt", "Casual", "White", "M", 50, Status.INSTOCK);
+        ProductDTO dto = new ProductDTO(1L, "T-Shirt", "Casual", "White", "M", 50, Status.INSTOCK,1L);
         Product product = mapper.toEntity(dto);
         assertNotNull(product);
         assertEquals(dto.getId(), product.getId());

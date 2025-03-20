@@ -2,6 +2,7 @@ package kg.alatoo.sewing_industry_management.services;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
 import kg.alatoo.sewing_industry_management.entities.Product;
+import kg.alatoo.sewing_industry_management.entities.RawMaterial;
 import kg.alatoo.sewing_industry_management.enums.Status;
 import kg.alatoo.sewing_industry_management.mappers.ProductMapper;
 import kg.alatoo.sewing_industry_management.repositories.ProductRepository;
@@ -37,6 +38,7 @@ class ProductServiceImplTest {
 
     @BeforeEach
     void setUp() {
+        RawMaterial rawMaterial = new RawMaterial();
         product = new Product();
         product.setId(1L);
         product.setName("Shirt");
@@ -45,8 +47,9 @@ class ProductServiceImplTest {
         product.setSize("M");
         product.setQuantity(100);
         product.setStatus(Status.INSTOCK);
+        product.setRawMaterial(rawMaterial);
 
-        productDTO = new ProductDTO(1L, "Shirt", "Casual", "Blue", "M", 100, Status.INSTOCK);
+        productDTO = new ProductDTO(1L, "Shirt", "Casual", "Blue", "M", 100, Status.INSTOCK,1L);
     }
 
     @Test

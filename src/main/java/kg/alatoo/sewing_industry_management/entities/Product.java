@@ -19,6 +19,6 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private Status status;
     @ManyToOne
-    @JoinColumn(name = "raw_material_id")
+    @JoinColumn(name = "raw_material_id", nullable = false)
     private RawMaterial rawMaterial; //Connection with raw material
 }

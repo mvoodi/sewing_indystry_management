@@ -30,7 +30,7 @@ class ProductControllerTest {
 
     @BeforeEach
     void setUp() {
-        productDTO = new ProductDTO(1L, "T-shirt", "Casual", "Blue", "M", 100, Status.INSTOCK);
+        productDTO = new ProductDTO(1L, "T-shirt", "Casual", "Blue", "M", 100, Status.INSTOCK, 1L);
     }
 
     @Test

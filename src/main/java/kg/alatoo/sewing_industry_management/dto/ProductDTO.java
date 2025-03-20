@@ -27,10 +27,13 @@ public class ProductDTO {
     @NotNull(message = "Status should not be null")
     private Status status;
 
+    @NotNull(message = "Raw material ID should not be null")
+    private Long rawMaterialId;
+
     public ProductDTO() {
     }
 
-    public ProductDTO(Long id, String name, String style, String color, String size, int quantity, Status status) {
+    public ProductDTO(Long id, String name, String style, String color, String size, int quantity, Status status, Long rawMaterialId) {
         this.id = id;
         this.name = name;
         this.style = style;
@@ -38,5 +41,6 @@ public class ProductDTO {
         this.size = size;
         this.quantity = quantity;
         this.status = status;
+        this.rawMaterialId = rawMaterialId;
     }
 }
