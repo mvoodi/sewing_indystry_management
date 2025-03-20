@@ -20,5 +20,5 @@ public class Product {
     private Status status;
     @ManyToOne
     @JoinColumn(name = "raw_material_id", nullable = false)
-    private RawMaterial rawMaterial; //Connection with raw material
+    private RawMaterial rawMaterial;
 }
