@@ -10,14 +10,18 @@ class DefectMapperTest {
 
     @Test
     void testToDto() {
+        Product product = new Product();
         Defect defect = new Defect();
         defect.setId(1L);
         defect.setDescription("Small hole");
         defect.setQuantity(2);
+        defect.setProduct(product);
 
         DefectDTO dto = mapper.toDto(defect);
         assertNotNull(dto);
         assertEquals(defect.getId(), dto.getId());
+        assertEquals(defect.getProduct().getId(), dto.getProductId());
+
     }
 
     @Test

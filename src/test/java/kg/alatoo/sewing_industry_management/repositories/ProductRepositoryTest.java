@@ -2,6 +2,7 @@
 package kg.alatoo.sewing_industry_management.repositories;
 
 import kg.alatoo.sewing_industry_management.entities.*;
+import kg.alatoo.sewing_industry_management.enums.Status;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,7 +33,7 @@ class ProductRepositoryTest {
         rawMaterial.setName("Cotton");
         rawMaterial.setColor("White");
         rawMaterial.setQuantity(100);
-        rawMaterial.setDescription("Soft cotton fabric");
+        rawMaterial.setStatus("Soft cotton fabric");
         rawMaterial = rawMaterialRepository.save(rawMaterial);
 
         product = new Product();
@@ -41,7 +42,7 @@ class ProductRepositoryTest {
         product.setColor("White");
         product.setSize("M");
         product.setQuantity(50);
-        product.setStatus("Available");
+        product.setStatus(Status.INSTOCK);
         product.setRawMaterial(rawMaterial);
         product = productRepository.save(product);
     }

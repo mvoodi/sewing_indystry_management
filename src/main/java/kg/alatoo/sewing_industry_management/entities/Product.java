@@ -1,6 +1,7 @@
 package kg.alatoo.sewing_industry_management.entities;
 
 import jakarta.persistence.*;
+import kg.alatoo.sewing_industry_management.enums.Status;
 import lombok.Data;
 
 @Entity
@@ -15,8 +16,9 @@ public class Product {
     private String color;
     private String size;
     private int quantity;
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private Status status;
     @ManyToOne
-    @JoinColumn(name = "raw_material_id")
-    private RawMaterial rawMaterial; //Connection with raw material
+    @JoinColumn(name = "raw_material_id", nullable = false)
+    private RawMaterial rawMaterial;
 }

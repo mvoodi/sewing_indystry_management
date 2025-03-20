@@ -15,7 +15,7 @@ class RawMaterialMapperTest {
         material.setName("Cotton");
         material.setColor("White");
         material.setQuantity(100);
-        material.setDescription("Soft cotton fabric");
+        material.setStatus("Soft cotton fabric");
 
         RawMaterialDTO dto = mapper.toDto(material);
         assertNotNull(dto);

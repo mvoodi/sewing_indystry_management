@@ -1,6 +1,6 @@
 package kg.alatoo.sewing_industry_management.enums;
 
-public enum UserRole {
+public enum Role {
     ADMIN,
     MANAGER,
     SEAMSTRESS,

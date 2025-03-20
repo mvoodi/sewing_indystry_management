@@ -1,9 +1,10 @@
 package kg.alatoo.sewing_industry_management.enums;
 
-public enum ProductStatus {
+public enum Status {
     INSTOCK,
     CUTTING,
     SEWING,
     IRONING,
-    PACKAGING
+    PACKAGING,
+    READY
 }

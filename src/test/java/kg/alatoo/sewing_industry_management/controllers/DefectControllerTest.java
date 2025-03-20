@@ -28,7 +28,7 @@ class DefectControllerTest {
 
     @BeforeEach
     void setUp() {
-        defectDTO = new DefectDTO(1L, "Broken Stitch", 5, 101L);
+        defectDTO = new DefectDTO(1L, "Broken Stitch", 5, 1L);
     }
 
     @Test

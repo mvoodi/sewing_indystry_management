@@ -16,5 +16,5 @@ public class RawMaterial {
     private String name;
     private String color;
     private double quantity; // (in meters)
-    private String description;
+    private String status;
 }

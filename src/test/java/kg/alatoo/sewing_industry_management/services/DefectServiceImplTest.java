@@ -2,8 +2,10 @@ package kg.alatoo.sewing_industry_management.services;
 
 import kg.alatoo.sewing_industry_management.dto.DefectDTO;
 import kg.alatoo.sewing_industry_management.entities.Defect;
+import kg.alatoo.sewing_industry_management.entities.Product;
 import kg.alatoo.sewing_industry_management.mappers.DefectMapper;
 import kg.alatoo.sewing_industry_management.repositories.DefectRepository;
+import kg.alatoo.sewing_industry_management.services.impl.DefectServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -35,12 +37,16 @@ class DefectServiceImplTest {
 
     @BeforeEach
     void setUp() {
+        Product product = new Product();
         defect = new Defect();
         defect.setId(1L);
         defect.setDescription("Torn fabric");
         defect.setQuantity(5);
+        defect.setProduct(product);
+        defectRepository.save(defect);
 
-        defectDTO = new DefectDTO(1L, "Torn fabric", 5, 2L);
+
+        defectDTO = new DefectDTO(1L, "Torn fabric", 5, 1L);
     }
 
     @Test
@@ -98,8 +104,10 @@ class DefectServiceImplTest {
     void deleteDefect() {
         doNothing().when(defectRepository).deleteById(1L);
 
-        defectService.deleteDefect(1L);
+        assertDoesNotThrow(() -> defectService.deleteDefect(1L));
 
         verify(defectRepository, times(1)).deleteById(1L);
     }
+
+
 }

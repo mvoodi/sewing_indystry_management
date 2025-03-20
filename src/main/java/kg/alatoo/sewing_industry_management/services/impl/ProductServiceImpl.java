@@ -1,9 +1,13 @@
-package kg.alatoo.sewing_industry_management.services;
+package kg.alatoo.sewing_industry_management.services.impl;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
 import kg.alatoo.sewing_industry_management.entities.Product;
+import kg.alatoo.sewing_industry_management.enums.Status;
+import kg.alatoo.sewing_industry_management.exception.ProductNotFoundException;
+import kg.alatoo.sewing_industry_management.exception.UserNotFoundException;
 import kg.alatoo.sewing_industry_management.mappers.ProductMapper;
 import kg.alatoo.sewing_industry_management.repositories.ProductRepository;
+import kg.alatoo.sewing_industry_management.services.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO getProductById(Long id) {
         Product product = productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() ->new UserNotFoundException("Product with ID " + id + " not found"));
         return productMapper.toDto(product);
     }
 
@@ -42,7 +46,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO updateProduct(Long id, ProductDTO productDTO) {
         Product existingProduct = productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new UserNotFoundException("Product with ID " + id + " not found"));
 
         existingProduct.setName(productDTO.getName());
         existingProduct.setStyle(productDTO.getStyle());
@@ -57,4 +61,36 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
+
+    @Override
+    public  void nextStep(Long id){
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Product with ID " + id + " not found"));
+        product.setStatus(next(product.getStatus()));
+        productRepository.save(product);
+
+    }
+
+    private Status next(Status status){
+        if (status == Status.INSTOCK){
+            return Status.CUTTING;
+        }
+        else if(status == Status.CUTTING){
+            return Status.SEWING;
+        }
+        else if(status == Status.SEWING){
+            return Status.IRONING;
+        }
+        else if(status == Status.IRONING){
+            return Status.PACKAGING;
+        }
+        else if(status == Status.PACKAGING){
+            return Status.READY;
+        }
+        else{
+            return status;
+        }
+
+    }
+
 }

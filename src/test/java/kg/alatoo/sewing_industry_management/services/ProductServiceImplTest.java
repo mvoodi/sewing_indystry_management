@@ -2,14 +2,16 @@ package kg.alatoo.sewing_industry_management.services;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
 import kg.alatoo.sewing_industry_management.entities.Product;
+import kg.alatoo.sewing_industry_management.entities.RawMaterial;
+import kg.alatoo.sewing_industry_management.enums.Status;
 import kg.alatoo.sewing_industry_management.mappers.ProductMapper;
 import kg.alatoo.sewing_industry_management.repositories.ProductRepository;
+import kg.alatoo.sewing_industry_management.services.impl.ProductServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
@@ -36,6 +38,7 @@ class ProductServiceImplTest {
 
     @BeforeEach
     void setUp() {
+        RawMaterial rawMaterial = new RawMaterial();
         product = new Product();
         product.setId(1L);
         product.setName("Shirt");
@@ -43,9 +46,10 @@ class ProductServiceImplTest {
         product.setColor("Blue");
         product.setSize("M");
         product.setQuantity(100);
-        product.setStatus("Available");
+        product.setStatus(Status.INSTOCK);
+        product.setRawMaterial(rawMaterial);
 
-        productDTO = new ProductDTO(1L, "Shirt", "Casual", "Blue", "M", 100, "Available");
+        productDTO = new ProductDTO(1L, "Shirt", "Casual", "Blue", "M", 100, Status.INSTOCK,1L);
     }
 
     @Test

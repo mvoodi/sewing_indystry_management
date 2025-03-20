@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>kg.alatoo</groupId>
-    <artifactId>food_delivery</artifactId>
+    <artifactId>sewing_fabric</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>food_delivery</name>
+    <name>sewing_fabric</name>
     <description>A Spring Boot-based application designed to streamline food ordering, delivery, and restaurant management processes</description>
     <url/>
     <licenses>
@@ -111,6 +111,17 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>5.11.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

@@ -4,6 +4,7 @@ import kg.alatoo.sewing_industry_management.dto.RawMaterialDTO;
 import kg.alatoo.sewing_industry_management.entities.RawMaterial;
 import kg.alatoo.sewing_industry_management.mappers.RawMaterialMapper;
 import kg.alatoo.sewing_industry_management.repositories.RawMaterialRepository;
+import kg.alatoo.sewing_industry_management.services.impl.RawMaterialServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -39,14 +40,14 @@ class RawMaterialServiceImplTest {
         rawMaterial.setName("Cotton");
         rawMaterial.setColor("White");
         rawMaterial.setQuantity(100.5);
-        rawMaterial.setDescription("High-quality cotton fabric");
+        rawMaterial.setStatus("High-quality cotton fabric");
 
         rawMaterialDTO = new RawMaterialDTO();
         rawMaterialDTO.setId(1L);
         rawMaterialDTO.setName("Cotton");
         rawMaterialDTO.setColor("White");
         rawMaterialDTO.setQuantity(100.5);
-        rawMaterialDTO.setDescription("High-quality cotton fabric");
+        rawMaterialDTO.setStatus("High-quality cotton fabric");
     }
 
     @Test

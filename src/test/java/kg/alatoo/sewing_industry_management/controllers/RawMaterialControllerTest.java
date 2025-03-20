@@ -13,75 +13,63 @@ import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)  // Подключаем поддержку Mockito в JUnit 5
+@ExtendWith(MockitoExtension.class)
 class RawMaterialControllerTest {
 
     @Mock
-    private RawMaterialService rawMaterialService;  // Мок для RawMaterialService
+    private RawMaterialService rawMaterialService;
 
     @InjectMocks
-    private RawMaterialController rawMaterialController;  // Контроллер, в который будет внедряться мок
+    private RawMaterialController rawMaterialController;
 
     private RawMaterialDTO rawMaterialDTO;
 
     @BeforeEach
     void setUp() {
-        rawMaterialDTO = new RawMaterialDTO(1L, "Cotton", "White", 100.0, "High-quality cotton");  // Инициализируем объект RawMaterialDTO
+        rawMaterialDTO = new RawMaterialDTO(1L, "Cotton", "White", 100.0, "High-quality cotton");
     }
 
     @Test
     void getRawMaterialById() {
-        // Arrange
-        when(rawMaterialService.getRawMaterialById(1L)).thenReturn(rawMaterialDTO);  // Настроим мок для возвращаемого значения
+        when(rawMaterialService.getRawMaterialById(1L)).thenReturn(rawMaterialDTO);
 
-        // Act
-        ResponseEntity<RawMaterialDTO> result = rawMaterialController.getRawMaterialById(1L);  // Вызовем метод контроллера
+        ResponseEntity<RawMaterialDTO> result = rawMaterialController.getRawMaterialById(1L);
 
-        // Assert
-        assertNotNull(result);  // Убедимся, что результат не равен null
-        assertEquals(200, result.getStatusCodeValue());  // Проверим код статуса
-        assertEquals("Cotton", result.getBody().getName());  // Проверим название сырья
+        assertNotNull(result);
+        assertEquals(200, result.getStatusCodeValue());
+        assertEquals("Cotton", result.getBody().getName());
     }
 
     @Test
     void createRawMaterial() {
-        // Arrange
-        when(rawMaterialService.createRawMaterial(rawMaterialDTO)).thenReturn(rawMaterialDTO);  // Настроим мок для возвращаемого значения
+        when(rawMaterialService.createRawMaterial(rawMaterialDTO)).thenReturn(rawMaterialDTO);
 
-        // Act
-        ResponseEntity<RawMaterialDTO> result = rawMaterialController.createRawMaterial(rawMaterialDTO);  // Вызовем метод контроллера
+        ResponseEntity<RawMaterialDTO> result = rawMaterialController.createRawMaterial(rawMaterialDTO);
 
-        // Assert
-        assertNotNull(result);  // Убедимся, что результат не равен null
-        assertEquals(200, result.getStatusCodeValue());  // Проверим код статуса
-        assertEquals("Cotton", result.getBody().getName());  // Проверим название сырья
+        assertNotNull(result);
+        assertEquals(200, result.getStatusCodeValue());
+        assertEquals("Cotton", result.getBody().getName());
     }
 
     @Test
     void updateRawMaterial() {
-        // Arrange
-        when(rawMaterialService.updateRawMaterial(1L, rawMaterialDTO)).thenReturn(rawMaterialDTO);  // Настроим мок для возвращаемого значения
+        when(rawMaterialService.updateRawMaterial(1L, rawMaterialDTO)).thenReturn(rawMaterialDTO);
 
-        // Act
-        ResponseEntity<RawMaterialDTO> result = rawMaterialController.updateRawMaterial(1L, rawMaterialDTO);  // Вызовем метод контроллера
+        ResponseEntity<RawMaterialDTO> result = rawMaterialController.updateRawMaterial(1L, rawMaterialDTO);
 
-        // Assert
-        assertNotNull(result);  // Убедимся, что результат не равен null
-        assertEquals(200, result.getStatusCodeValue());  // Проверим код статуса
-        assertEquals("Cotton", result.getBody().getName());  // Проверим название сырья
+        assertNotNull(result);
+        assertEquals(200, result.getStatusCodeValue());
+        assertEquals("Cotton", result.getBody().getName());
     }
 
     @Test
     void deleteRawMaterial() {
-        // Arrange
-        doNothing().when(rawMaterialService).deleteRawMaterial(1L);  // Настроим мок для удаления
+        doNothing().when(rawMaterialService).deleteRawMaterial(1L);
 
-        // Act
-        ResponseEntity<Void> result = rawMaterialController.deleteRawMaterial(1L);  // Вызовем метод контроллера
+        ResponseEntity<Void> result = rawMaterialController.deleteRawMaterial(1L);
 
-        // Assert
-        assertNotNull(result);  // Убедимся, что результат не равен null
-        assertEquals(204, result.getStatusCodeValue());  // Проверим код статуса
-        verify(rawMaterialService, times(1)).deleteRawMaterial(1L);  // Проверим, что метод deleteRawMaterial был вызван один раз
+        assertNotNull(result);
+        assertEquals(204, result.getStatusCodeValue());
+        verify(rawMaterialService, times(1)).deleteRawMaterial(1L);
     }
 }
