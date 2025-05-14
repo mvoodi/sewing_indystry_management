@@ -1,4 +1,4 @@
-package kg.alatoo.sewing_industry_management.services;
+package kg.alatoo.sewing_industry_management.service;
 
 
 import kg.alatoo.sewing_industry_management.dto.UserDTO;

@@ -1,11 +1,11 @@
-package kg.alatoo.sewing_industry_management.services;
+package kg.alatoo.sewing_industry_management.service;
 
 import kg.alatoo.sewing_industry_management.dto.UserDTO;
-import kg.alatoo.sewing_industry_management.entities.User;
+import kg.alatoo.sewing_industry_management.model.User;
 import kg.alatoo.sewing_industry_management.enums.Role;
 import kg.alatoo.sewing_industry_management.mappers.UserMapper;
-import kg.alatoo.sewing_industry_management.repositories.UserRepository;
-import kg.alatoo.sewing_industry_management.services.impl.UserServiceImpl;
+import kg.alatoo.sewing_industry_management.repository.UserRepository;
+import kg.alatoo.sewing_industry_management.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +44,7 @@ class UserServiceImplTest {
         user.setEmail("mira_official@example.com");
         user.setRole(Role.MANAGER);
 
-        userDTO = new UserDTO(1L, "Mira", "uulum2010", "mira_official@example.com", Role.MANAGER);
+        userDTO = new UserDTO(1L, "Mirana", "Alieva", "Mira", "uulum2010", "mira_official@example.com", Role.MANAGER);
     }
 
     @Test

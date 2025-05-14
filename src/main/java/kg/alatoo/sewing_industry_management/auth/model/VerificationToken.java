@@ -1,28 +1,27 @@
 package kg.alatoo.sewing_industry_management.auth.model;
+
 import jakarta.persistence.*;
+import kg.alatoo.sewing_industry_management.model.User;
 import lombok.*;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
+import java.time.Instant;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Table(name = "email_verification_tokens")
+@Getter @Setter @Builder
+@NoArgsConstructor @AllArgsConstructor
 public class VerificationToken {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String token;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Instant expiryDate;
 
-    @Column(nullable = false)
-    private LocalDateTime expiryDate;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 }

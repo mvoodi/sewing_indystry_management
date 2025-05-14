@@ -1,8 +1,8 @@
-package kg.alatoo.sewing_industry_management.controllers;
+package kg.alatoo.sewing_industry_management.controller;
 
 import kg.alatoo.sewing_industry_management.dto.UserDTO;
 import kg.alatoo.sewing_industry_management.enums.Role;
-import kg.alatoo.sewing_industry_management.services.UserService;
+import kg.alatoo.sewing_industry_management.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,7 +28,7 @@ class UserControllerTest {
 
     @BeforeEach
     void setUp() {
-        userDTO = new UserDTO(1L, "testuser", "password123", "test@example.com", Role.ADMIN);  // Инициализируем объект UserDTO
+        userDTO = new UserDTO(1L, "testuser", "Alina", "Mirbekova", "test@example.com","password123",   Role.ADMIN);  // Инициализируем объект UserDTO
     }
 
     @Test

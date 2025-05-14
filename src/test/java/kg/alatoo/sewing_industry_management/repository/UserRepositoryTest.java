@@ -1,6 +1,6 @@
-package kg.alatoo.sewing_industry_management.repositories;
+package kg.alatoo.sewing_industry_management.repository;
 
-import kg.alatoo.sewing_industry_management.entities.User;
+import kg.alatoo.sewing_industry_management.model.User;
 import kg.alatoo.sewing_industry_management.enums.Role;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
