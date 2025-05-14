@@ -1,7 +1,7 @@
-package kg.alatoo.sewing_industry_management.controllers;
+package kg.alatoo.sewing_industry_management.controller;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
-import kg.alatoo.sewing_industry_management.services.ProductService;
+import kg.alatoo.sewing_industry_management.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

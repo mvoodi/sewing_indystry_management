@@ -1,4 +1,4 @@
-package kg.alatoo.sewing_industry_management.entities;
+package kg.alatoo.sewing_industry_management.model;
 
 import jakarta.persistence.*;
 import kg.alatoo.sewing_industry_management.enums.Status;

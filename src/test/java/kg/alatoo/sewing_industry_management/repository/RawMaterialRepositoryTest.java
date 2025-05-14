@@ -1,6 +1,6 @@
-package kg.alatoo.sewing_industry_management.repositories;
+package kg.alatoo.sewing_industry_management.repository;
 
-import kg.alatoo.sewing_industry_management.entities.*;
+import kg.alatoo.sewing_industry_management.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

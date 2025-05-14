@@ -1,7 +1,7 @@
-package kg.alatoo.sewing_industry_management.controllers;
+package kg.alatoo.sewing_industry_management.controller;
 
 import kg.alatoo.sewing_industry_management.dto.RawMaterialDTO;
-import kg.alatoo.sewing_industry_management.services.RawMaterialService;
+import kg.alatoo.sewing_industry_management.service.RawMaterialService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

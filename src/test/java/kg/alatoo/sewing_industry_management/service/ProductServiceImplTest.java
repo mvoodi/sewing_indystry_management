@@ -1,12 +1,12 @@
-package kg.alatoo.sewing_industry_management.services;
+package kg.alatoo.sewing_industry_management.service;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
-import kg.alatoo.sewing_industry_management.entities.Product;
-import kg.alatoo.sewing_industry_management.entities.RawMaterial;
+import kg.alatoo.sewing_industry_management.model.Product;
+import kg.alatoo.sewing_industry_management.model.RawMaterial;
 import kg.alatoo.sewing_industry_management.enums.Status;
 import kg.alatoo.sewing_industry_management.mappers.ProductMapper;
-import kg.alatoo.sewing_industry_management.repositories.ProductRepository;
-import kg.alatoo.sewing_industry_management.services.impl.ProductServiceImpl;
+import kg.alatoo.sewing_industry_management.repository.ProductRepository;
+import kg.alatoo.sewing_industry_management.service.impl.ProductServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

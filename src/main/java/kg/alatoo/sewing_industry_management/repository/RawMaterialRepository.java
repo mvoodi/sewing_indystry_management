@@ -1,6 +1,6 @@
-package kg.alatoo.sewing_industry_management.repositories;
+package kg.alatoo.sewing_industry_management.repository;
 
-import kg.alatoo.sewing_industry_management.entities.RawMaterial;
+import kg.alatoo.sewing_industry_management.model.RawMaterial;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

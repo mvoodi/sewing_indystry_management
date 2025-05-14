@@ -1,13 +1,13 @@
-package kg.alatoo.sewing_industry_management.services.impl;
+package kg.alatoo.sewing_industry_management.service.impl;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
-import kg.alatoo.sewing_industry_management.entities.Product;
+import kg.alatoo.sewing_industry_management.model.Product;
 import kg.alatoo.sewing_industry_management.enums.Status;
 import kg.alatoo.sewing_industry_management.exception.ProductNotFoundException;
 import kg.alatoo.sewing_industry_management.exception.UserNotFoundException;
 import kg.alatoo.sewing_industry_management.mappers.ProductMapper;
-import kg.alatoo.sewing_industry_management.repositories.ProductRepository;
-import kg.alatoo.sewing_industry_management.services.ProductService;
+import kg.alatoo.sewing_industry_management.repository.ProductRepository;
+import kg.alatoo.sewing_industry_management.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

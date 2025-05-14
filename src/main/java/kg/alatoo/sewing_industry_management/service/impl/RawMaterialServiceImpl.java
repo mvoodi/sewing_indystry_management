@@ -1,12 +1,11 @@
-package kg.alatoo.sewing_industry_management.services.impl;
+package kg.alatoo.sewing_industry_management.service.impl;
 
 import kg.alatoo.sewing_industry_management.dto.RawMaterialDTO;
-import kg.alatoo.sewing_industry_management.entities.RawMaterial;
+import kg.alatoo.sewing_industry_management.model.RawMaterial;
 import kg.alatoo.sewing_industry_management.exception.RawMaterialNotFoundException;
-import kg.alatoo.sewing_industry_management.exception.UserNotFoundException;
 import kg.alatoo.sewing_industry_management.mappers.RawMaterialMapper;
-import kg.alatoo.sewing_industry_management.repositories.RawMaterialRepository;
-import kg.alatoo.sewing_industry_management.services.RawMaterialService;
+import kg.alatoo.sewing_industry_management.repository.RawMaterialRepository;
+import kg.alatoo.sewing_industry_management.service.RawMaterialService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

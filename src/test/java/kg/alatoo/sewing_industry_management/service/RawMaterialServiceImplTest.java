@@ -1,10 +1,10 @@
-package kg.alatoo.sewing_industry_management.services;
+package kg.alatoo.sewing_industry_management.service;
 
 import kg.alatoo.sewing_industry_management.dto.RawMaterialDTO;
-import kg.alatoo.sewing_industry_management.entities.RawMaterial;
+import kg.alatoo.sewing_industry_management.model.RawMaterial;
 import kg.alatoo.sewing_industry_management.mappers.RawMaterialMapper;
-import kg.alatoo.sewing_industry_management.repositories.RawMaterialRepository;
-import kg.alatoo.sewing_industry_management.services.impl.RawMaterialServiceImpl;
+import kg.alatoo.sewing_industry_management.repository.RawMaterialRepository;
+import kg.alatoo.sewing_industry_management.service.impl.RawMaterialServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
