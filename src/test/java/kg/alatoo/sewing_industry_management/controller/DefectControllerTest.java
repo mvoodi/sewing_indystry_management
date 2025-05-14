@@ -1,7 +1,7 @@
-package kg.alatoo.sewing_industry_management.controllers;
+package kg.alatoo.sewing_industry_management.controller;
 
 import kg.alatoo.sewing_industry_management.dto.DefectDTO;
-import kg.alatoo.sewing_industry_management.services.DefectService;
+import kg.alatoo.sewing_industry_management.service.DefectService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,7 +11,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;

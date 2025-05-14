@@ -1,18 +1,13 @@
-package kg.alatoo.sewing_industry_management.services.impl;
+package kg.alatoo.sewing_industry_management.service.impl;
 
 import kg.alatoo.sewing_industry_management.dto.DefectDTO;
-import kg.alatoo.sewing_industry_management.dto.UserDTO;
-import kg.alatoo.sewing_industry_management.entities.Defect;
-import kg.alatoo.sewing_industry_management.entities.Product;
-import kg.alatoo.sewing_industry_management.entities.User;
+import kg.alatoo.sewing_industry_management.model.Defect;
 import kg.alatoo.sewing_industry_management.exception.DefectNotFoundException;
-import kg.alatoo.sewing_industry_management.exception.ProductNotFoundException;
 import kg.alatoo.sewing_industry_management.exception.UserNotFoundException;
 import kg.alatoo.sewing_industry_management.mappers.DefectMapper;
-import kg.alatoo.sewing_industry_management.repositories.DefectRepository;
-import kg.alatoo.sewing_industry_management.services.DefectService;
+import kg.alatoo.sewing_industry_management.repository.DefectRepository;
+import kg.alatoo.sewing_industry_management.service.DefectService;
 import lombok.AllArgsConstructor;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,7 +1,7 @@
-package kg.alatoo.sewing_industry_management.controllers;
+package kg.alatoo.sewing_industry_management.controller;
 
 import kg.alatoo.sewing_industry_management.dto.DefectDTO;
-import kg.alatoo.sewing_industry_management.services.DefectService;
+import kg.alatoo.sewing_industry_management.service.DefectService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

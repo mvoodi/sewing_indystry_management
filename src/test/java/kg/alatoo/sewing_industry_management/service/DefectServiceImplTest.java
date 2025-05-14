@@ -1,11 +1,11 @@
-package kg.alatoo.sewing_industry_management.services;
+package kg.alatoo.sewing_industry_management.service;
 
 import kg.alatoo.sewing_industry_management.dto.DefectDTO;
-import kg.alatoo.sewing_industry_management.entities.Defect;
-import kg.alatoo.sewing_industry_management.entities.Product;
+import kg.alatoo.sewing_industry_management.model.Defect;
+import kg.alatoo.sewing_industry_management.model.Product;
 import kg.alatoo.sewing_industry_management.mappers.DefectMapper;
-import kg.alatoo.sewing_industry_management.repositories.DefectRepository;
-import kg.alatoo.sewing_industry_management.services.impl.DefectServiceImpl;
+import kg.alatoo.sewing_industry_management.repository.DefectRepository;
+import kg.alatoo.sewing_industry_management.service.impl.DefectServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

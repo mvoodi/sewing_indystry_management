@@ -1,7 +1,7 @@
 package kg.alatoo.sewing_industry_management.mappers;
 
 import kg.alatoo.sewing_industry_management.dto.*;
-import kg.alatoo.sewing_industry_management.entities.*;
+import kg.alatoo.sewing_industry_management.model.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
