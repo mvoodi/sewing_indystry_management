@@ -23,28 +23,28 @@ class UserDTOValidationTest {
 
     @Test
     void testValidUserDTO() {
-        UserDTO user = new UserDTO(null, "Aibek", "password123", "aibek.bekov@example.com", Role.CUTTER);
+        UserDTO user = new UserDTO(null,  "Aibek", "Nurlanov", "aibek77","password123", "aibek.bekov@example.com", Role.CUTTER);
         Set<jakarta.validation.ConstraintViolation<UserDTO>> violations = validator.validate(user);
         assertTrue(violations.isEmpty(), "Expected no validation errors");
     }
 
     @Test
     void testUserDTOWithBlankUsername() {
-        UserDTO user = new UserDTO(null, "", "aibek.bekov@example.com", "password123", Role.CUTTER);
+        UserDTO user = new UserDTO(null, "Aibek", "Nurlanov", "", "aibek.bekov@example.com", "password123", Role.CUTTER);
         Set<jakarta.validation.ConstraintViolation<UserDTO>> violations = validator.validate(user);
         assertFalse(violations.isEmpty(), "Expected validation error for blank username");
     }
 
     @Test
     void testUserDTOWithInvalidEmail() {
-        UserDTO user = new UserDTO(null, "Aibek", "password123", "invalid-email", Role.CUTTER);
+        UserDTO user = new UserDTO(null, "Aibek", "Nurlanov", "aibek77", "password123", "invalid-email", Role.CUTTER);
         Set<jakarta.validation.ConstraintViolation<UserDTO>> violations = validator.validate(user);
         assertFalse(violations.isEmpty(), "Expected validation error for invalid email");
     }
 
     @Test
     void testUserDTOWithShortPassword() {
-        UserDTO user = new UserDTO(null, "Aibek", "123", "aibek.bekov@example.com", Role.CUTTER);
+        UserDTO user = new UserDTO(null, "Aibek", "Nurlanov", "aibek77", "123", "aibek.bekov@example.com", Role.CUTTER);
         Set<jakarta.validation.ConstraintViolation<UserDTO>> violations = validator.validate(user);
         assertFalse(violations.isEmpty(), "Expected validation error for short password");
     }

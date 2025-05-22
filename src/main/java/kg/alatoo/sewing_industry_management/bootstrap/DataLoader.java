@@ -1,93 +1,89 @@
 package kg.alatoo.sewing_industry_management.bootstrap;
 
-import kg.alatoo.sewing_industry_management.entities.Defect;
-import kg.alatoo.sewing_industry_management.entities.Product;
-import kg.alatoo.sewing_industry_management.entities.RawMaterial;
-import kg.alatoo.sewing_industry_management.entities.User;
+import kg.alatoo.sewing_industry_management.model.*;
 import kg.alatoo.sewing_industry_management.enums.Role;
 import kg.alatoo.sewing_industry_management.enums.Status;
-import kg.alatoo.sewing_industry_management.repositories.DefectRepository;
-import kg.alatoo.sewing_industry_management.repositories.ProductRepository;
-import kg.alatoo.sewing_industry_management.repositories.RawMaterialRepository;
-import kg.alatoo.sewing_industry_management.repositories.UserRepository;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
+import kg.alatoo.sewing_industry_management.repository.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.Transactional;
 
-@Component
-public class DataLoader implements CommandLineRunner {
-    private final RawMaterialRepository rawMaterialRepository;
-    private final ProductRepository productRepository;
-    private final UserRepository userRepository;
-    private final DefectRepository defectRepository;
+import java.util.Set;
 
-    public DataLoader(RawMaterialRepository rawMaterialRepository, ProductRepository productRepository, UserRepository userRepository, DefectRepository defectRepository) {
-        this.rawMaterialRepository = rawMaterialRepository;
-        this.productRepository = productRepository;
-        this.userRepository = userRepository;
-        this.defectRepository = defectRepository;
-    }
-    @Override
-    public void run(String... args) throws Exception {
-        User user = new User();
-        user.setId(1L);
-        user.setUsername("Aika");
-        user.setPassword("admin123");
-        user.setEmail("aika@example.com");
-        user.setRole(Role.ADMIN);
+@Configuration
+@RequiredArgsConstructor
+public class DataLoader {
 
-        User user1 = new User();
-        user1.setId(2L);
-        user1.setUsername("Bakyt");
-        user1.setPassword("admin123");
-        user1.setEmail("Bakyt1998@example.com");
-        user1.setRole(Role.IRONER);
-        userRepository.save(user);
-        userRepository.save(user1);
+    private final RawMaterialRepository rawRepo;
+    private final ProductRepository     productRepo;
+    private final UserRepository        userRepo;
+    private final DefectRepository      defectRepo;
 
+    @Bean
+    @Transactional
+    public ApplicationRunner loadDemoData() {
+        return args -> {
+            if (userRepo.count() > 0) return;   // данные уже есть
 
-        RawMaterial material1 = new RawMaterial();
-        material1.setName("Cotton");
-        material1.setColor("White");
-        material1.setQuantity(100.0);
-        material1.setStatus("IN PROCESS");
+            /* ───── USERS ───── */
+            User admin = new User();
+            admin.setUsername("Aika");
+            admin.setPassword("aikaa123");    // только для демо!
+            admin.setEmail("aika@example.com");
+            admin.setRole(Role.ADMIN);
+            userRepo.save(admin);
 
-        RawMaterial material2 = new RawMaterial();
-        material2.setName("Silk");
-        material2.setColor("Red");
-        material2.setQuantity(50.0);
-        material2.setStatus("IN STOCK");
-        rawMaterialRepository.save(material1);
-        rawMaterialRepository.save(material2);
+            User manager = new User();
+            manager.setUsername("Bakyt");
+            manager.setPassword("{noop}pass");
+            manager.setEmail("bakyt1998@example.com");
+            manager.setRole(Role.MANAGER);
+            userRepo.save(manager);
 
-        Product product = new Product();
-        product.setId(1L);
-        product.setName("T-Shirt");
-        product.setStyle("Casual");
-        product.setColor("White");
-        product.setSize("M");
-        product.setQuantity(50);
-        product.setStatus(Status.CUTTING);
-        product.setRawMaterial(material1);
-        productRepository.save(product);
+            /* ───── RAW MATERIALS ───── */
+            RawMaterial cotton = new RawMaterial();
+            cotton.setName("Cotton");
+            cotton.setColor("White");
+            cotton.setQuantity(100.0);
+            cotton.setStatus("IN PROCESS");
+            rawRepo.save(cotton);
 
-        Product product2 = new Product();
-        product2.setId(2L);
-        product2.setName("Dress");
-        product2.setStyle("Casual");
-        product2.setColor("Red");
-        product2.setSize("M");
-        product2.setQuantity(50);
-        product2.setStatus(Status.SEWING);
-        product2.setRawMaterial(material1);
-        productRepository.save(product2);
+            RawMaterial silk = new RawMaterial();
+            silk.setName("Silk");
+            silk.setColor("Red");
+            silk.setQuantity(50.0);
+            silk.setStatus("IN STOCK");
+            rawRepo.save(silk);
 
-        Defect defect = new Defect();
-        defect.setId(1L);
-        defect.setDescription("Small collar");
-        defect.setQuantity(20);
-        defect.setProduct(product);
-        defectRepository.save(defect);
+            /* ───── PRODUCTS ───── */
+            Product tshirt = new Product();
+            tshirt.setName("T‑Shirt");
+            tshirt.setStyle("Casual");
+            tshirt.setColor("White");
+            tshirt.setSize("M");
+            tshirt.setQuantity(50);
+            tshirt.setStatus(Status.CUTTING);
+            tshirt.setRawMaterial(cotton);
+            productRepo.save(tshirt);
+
+            Product dress = new Product();
+            dress.setName("Dress");
+            dress.setStyle("Casual");
+            dress.setColor("Red");
+            dress.setSize("M");
+            dress.setQuantity(50);
+            dress.setStatus(Status.SEWING);
+            dress.setRawMaterial(cotton);
+            productRepo.save(dress);
+
+            /* ───── DEFECTS ───── */
+            Defect defect = new Defect();
+            defect.setDescription("Small collar");
+            defect.setQuantity(20);
+            defect.setProduct(tshirt);
+            defectRepo.save(defect);
+        };
     }
 }
-
-

@@ -1,7 +1,7 @@
 package kg.alatoo.sewing_industry_management.mappers;
 
 import kg.alatoo.sewing_industry_management.dto.ProductDTO;
-import kg.alatoo.sewing_industry_management.entities.Product;
+import kg.alatoo.sewing_industry_management.model.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

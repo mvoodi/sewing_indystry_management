@@ -1,9 +1,12 @@
 package kg.alatoo.sewing_industry_management.mappers;
 
 import kg.alatoo.sewing_industry_management.dto.*;
-import kg.alatoo.sewing_industry_management.entities.*;
+import kg.alatoo.sewing_industry_management.model.*;
 import kg.alatoo.sewing_industry_management.enums.Role;
 import org.junit.jupiter.api.Test;
+
+import java.util.Collections;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserMapperTest {
@@ -18,6 +21,7 @@ class UserMapperTest {
         user.setEmail("aika@example.com");
         user.setRole(Role.ADMIN);
 
+
         UserDTO dto = mapper.toDto(user);
         assertNotNull(dto);
         assertEquals(user.getId(), dto.getId());
@@ -26,7 +30,7 @@ class UserMapperTest {
 
     @Test
     void testToEntity() {
-        UserDTO dto = new UserDTO(1L, "Aika", "admin123", "aika@example.com", Role.ADMIN);
+        UserDTO dto = new UserDTO(1L, "Aigerim", "Kalatova", "Aika", "admin123", "aika@example.com", Role.ADMIN);
         User user = mapper.toEntity(dto);
         assertNotNull(user);
         assertEquals(dto.getId(), user.getId());
